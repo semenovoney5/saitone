@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" type="image/x-icon" href="/static/images/favicon.gif">
+  <script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
+  <link rel="stylesheet" href="/static/css/960.css">
+    <link rel="stylesheet" href="/static/css/960responsive.css">
+  <link rel="stylesheet" href="/static/css/main.css">
+  <title>Profile</title>
+</head>
+<body>
+  <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  <div class="container_12">
+    <div class="grid_3">
+      <a href="/"><img src="/static/images/logo.gif" alt=""></a>
+    </div>
+    <div class="grid_5">
+      <p>Трекер - это торрент-сервер. В простонародье трекером называют сайт, который размещает в себе ссылки на торренты</p>
+    </div>
+    <div class="grid_4">
+      <div class="mtop">
+            <form class="myform" action="/search/"  method="post">
+        <input type="search" name="q" placeholder="search">
+        <button type="submit">OK</button>
+      </form> 
+      </div>
+      
+    </div>
+  </div>
+  <div class="container_12">
+    <div class="grid_12">
+      <div class="mylinia"></div>
+    </div>
+    <div class="grid_9">
+     
+<p>Hello! {{myorder[4]}}</p>
+	<img src="/static/qr/{{myorder[1]}}.png" alt="">
+	<p>{{myorder[1]}}</p>
+	<p>Отправть 5000 сатоши для получения полного доступа к сайту!</p>
+	<p>Всего оплаченно!</p>
+	{{balans['total']}}
+	<p>Balanse--{{balans['balanse']}}</p>
+    <p>Транзакции--{{balans['tranz']}}</p>	
+    </div>
+    <div class="grid_3"></div>
+    <div class="grid_12">
+      <div class="mylinia"></div>
+      <p class="mycopy">&copy; 2021  Сайт не хранит видео материалы</p>
+    </div>
+  </div>
+  <script>
+  $(window).load(function() { $('.lds-roller').fadeOut('slow'); });
+</script>
+</body>
+</html>
+

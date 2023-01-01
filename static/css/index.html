@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
+ 
+	<script type="text/javascript" src="/static/js/simplepagin.js"></script>
+	<link type="text/css" rel="stylesheet" href="/static/css/simplepagin.css"/>
+	<link rel="stylesheet" href="/home/semenov/sanicrutor/htmlgimp/960.css">
+	<link rel="stylesheet" href="/home/semenov/sanicrutor/htmlgimp/main.css">
+	<title>Video Films Torrent</title>
+</head>
+<body>
+	<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+	<div class="container_12">
+		<div class="grid_3">
+			<img src="/home/semenov/sanicrutor/htmlgimp/logo.gif" alt="">
+		</div>
+		<div class="grid_6">
+			<p>Трекер - это торрент-сервер. В простонародье трекером называют сайт, который размещает в себе ссылки на торренты</p>
+		</div>
+		<div class="grid_3">form</div>
+	</div>
+	<div class="container_12">
+		<div class="grid_12">
+			<div class="mylinia"></div>
+		</div>
+		<div class="grid_9">
+			{% if rows %}
+				<table>
+
+				<tr class="mytab">
+				<th>№ п/п</th>
+				<th>Магнет</th>
+				<th>Название</th>
+				<th>Seeds</th>
+				<th>Peers</th>
+				<th>Size</th>
+
+				</tr>
+
+				{% for row in rows%}
+
+
+				<tr>
+				<td>{{row.updated}}</td>
+				<td> <a  href="{{row.magnet}}"> <img width="30px" src="/static/images/magnet2.png" alt=""> </a> </td>
+				<td><a  href="/{{row.info_hash}}"> {{row.title | truncate(95,true)}}</a></td>
+				<td>{{row.seeds}}</td>
+				<td>{{row.peers}}</td>
+				<td>{{row.size}}</td>
+				</tr>
+				{% endfor%}
+
+
+
+				</table>
+				{% else%}
+						<p>трекер времмено не доступен</p>
+						  {% endif%}
+						  <div id="pagin"></div>
+						  <script>
+						$(function() {
+						    $("#pagin").pagination({
+						        items: {{total}},
+						        itemsOnPage: 100,
+						        cssStyle: "compact-theme"
+						    });
+						});
+						</script>
+		</div>
+		<div class="grid_3">reklam</div>
+		
+	</div>
+	<script>
+  $(window).load(function() { $('.lds-roller').fadeOut('slow'); });
+</script>
+</body>
+</html>
