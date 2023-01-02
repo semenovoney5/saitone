@@ -1,0 +1,10 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+sha256.c
+sha256.pyx
+sha256.egg-info/PKG-INFO
+sha256.egg-info/SOURCES.txt
+sha256.egg-info/dependency_links.txt
+sha256.egg-info/top_level.txt
