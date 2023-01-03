@@ -10,8 +10,7 @@ bipwallet==1.0.2
 certifi==2022.12.7
 charset-normalizer==2.0.12
 click==6.6
-requests>=2.5.2
-requests<=2.11.1
+requests
 ecdsa==0.18.0
 exceptiongroup==1.1.0
 flake8==6.0.0
