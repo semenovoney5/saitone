@@ -3,7 +3,7 @@ from lxml import etree
 import asyncio
 import re
 from itertools import zip_longest
-from models import myconnmy
+from models import myconn
 from datetime import datetime
 
 
@@ -18,7 +18,7 @@ class Wildres:
     
     async def fetch(self, session,url):
         
-        proxy = "http://85.214.124.194:5001"
+        proxy = "http://173.212.229.53:3128"
         async with session.get(url,proxy=proxy) as response:
             await asyncio.sleep(30)
             # 1. Extracting the Text:
@@ -35,8 +35,9 @@ class Wildres:
 
     async def parse_pages(self,doc):
         response = etree.HTML(doc)
-        conn =   myconnmy()
-        cur = conn.cursor()
+        conne = await  myconn()
+        #curs = conn.cursor()
+        #cur = conn.cursor()
         paterrn = r'(magnet:\?xt=urn:btih):([a-zA-Z0-9]+)'
         global res
         item = {}
@@ -75,12 +76,14 @@ class Wildres:
 
 
             ####################created#####################
-            #cur.execute('''INSERT INTO rutor(title,url,seeds,peers,magnet,created,updated,info_hash,size) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)''',(item['title'],item['url'],item['razdayt'],item['kachayt'],item['magnet'],item['created'],item['created'],item['info_hash'],item['size']))
-            #conn.commit()
+            await conne.execute('''INSERT INTO rutor(title,url,seeds,peers,magnet,created,updated,info_hash,size) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9)''',item['title'],item['url'],item['razdayt'],item['kachayt'],item['magnet'],item['created'],item['created'],item['info_hash'],item['size'])
+
+            #await conne.close()
+
             ####################updated#####################
 
-            cur.execute('''UPDATE  rutor SET title=%s,url=%s,seeds=%s,peers=%s,magnet=%s,updated=%s,info_hash=%s,size=%s WHERE id = %s''',(item['title'],item['url'],item['razdayt'],item['kachayt'],item['magnet'],created,item['info_hash'],item['size'],res))
-            conn.commit()
+            #conn.execute('''UPDATE  rutor SET title=%s,url=%s,seeds=%s,peers=%s,magnet=%s,updated=%s,info_hash=%s,size=%s WHERE id = %s''',(item['title'],item['url'],item['razdayt'],item['kachayt'],item['magnet'],created,item['info_hash'],item['size'],res))
+            #conn.commit()
             ####################################################
             res+=1
             print(res)

@@ -37,9 +37,9 @@ def gen_address(index):
 #####wallet = gen_address(999999999)
 
 
-def get_balans(wallet):
+def get_balans(walleton):
     ret ={}
-    url = f'https://blockchain.info/rawaddr/{wallet}'
+    url = f'https://blockchain.info/rawaddr/{walleton}'
     x = requests.get(url)
     print(x,"LLLLLLLLLLLLLLLLLLLLLLLLL")
     wallet = x.json()

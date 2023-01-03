@@ -2,7 +2,7 @@ import psycopg2
 
 def createrutor():
     
-    conn =  psycopg2.connect('dbname=mydbone user=monty password=qwaszx7 host=localhost')
+    conn =  psycopg2.connect('dbname=mydbone user=larry password=qwaszx7cxz host=127.0.0.1')
     cur = conn.cursor()
 
     cur.execute('''
