@@ -47,7 +47,6 @@ pytest==7.2.0
 python-dateutil==2.8.2
 PyYAML==6.0
 qrcode==7.3.1
-requests==2.27.0
 sanic==22.12.0
 Sanic-Auth==0.3.0
 sanic-ext==22.12.0
